@@ -38,7 +38,7 @@ Then('I should get at least {int} hits', async function (minNumberOfHits) {
   // (the tool / verktyg button first shows when the search is complete)
   let toolButton = await this.driver.wait(until.elementLocated(
     By.xpath("//div[contains(text(),'Verktyg')]")
-  ));
+  ), 5000);
   // click the tool button which will show the result stats (number of hits)
   await toolButton.click();
   let resultStatsEl = await this.driver.findElement(
