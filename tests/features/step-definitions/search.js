@@ -32,23 +32,6 @@ When('I search for {string}', async function (searchString) {
     .perform();
 });
 
-/*Then('I should get at least {int} hits', async function (minNumberOfHits) {
-  // wait for up to 5 secs for the search to complete
-  // and then get the result-stats element that includes number of hits
-  let resultStatsEl = await this.driver.wait(until.elementLocated(
-    By.css('#result-stats')),
-    5000
-  );
-  // get the text of the result-stats element
-  let statText = await resultStatsEl.getText();
-  // extract number of hits from the text
-  let numberOfHits = +statText.split('(')[0].replace(/\D/g, '');
-  // check that the number of hits are at least the minumum expected
-  expect(numberOfHits).to.be.at.least(minNumberOfHits);
-  // If you want to wait/sleep (avoid if possible, use until instead!)
-  // await this.driver.sleep(3000);
-});*/
-
 // #hdtb-tls
 Then('I should get at least {int} hits', async function (minNumberOfHits) {
   // wait for up to 5 secs for the search to complete
