@@ -1,4 +1,5 @@
 import generator from 'cucumber-html-reporter';
+import open from 'open';
 
 const options = {
   theme: 'bootstrap',
@@ -7,3 +8,4 @@ const options = {
 };
 
 generator.generate(options);
+await open('./tests/results/chrome.html');
