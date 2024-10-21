@@ -8,8 +8,8 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 ## Ignore json and html files inside results
-results/*.html
-resutls/*.json
+tests/results/chrome.html
+tests/results/chrome.json
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

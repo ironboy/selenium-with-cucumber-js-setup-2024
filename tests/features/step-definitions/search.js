@@ -52,18 +52,16 @@ When('I search for {string}', async function (searchString) {
 // #hdtb-tls
 Then('I should get at least {int} hits', async function (minNumberOfHits) {
   // wait for up to 5 secs for the search to complete
-  // (there are no h3 headings before we have a search result)
-  await this.driver.wait(until.elementLocated(By.css('h3')), 5000);
-  // find and click the "Verktyg" button
-  let toolButton = await this.driver.findElement(
+  // (the tool / verktyg button first shows when the search is complete)
+  let toolButton = await this.driver.wait(until.elementLocated(
     By.xpath("//div[contains(text(),'Verktyg')]")
-  );
+  ));
+  // click the tool button which will show the result stats (number of hits)
   await toolButton.click();
-  // find the result stats (one of the few elements with a human readable class or id)
   let resultStatsEl = await this.driver.findElement(
     By.css('#result-stats')
   );
-  // get the text of the result-stats element
+  // get the text of the result stats element
   let statText = await resultStatsEl.getText();
   // extract number of hits from the text (\D in the reg ex means "non-digit")
   let numberOfHits = +statText.split('(')[0].replace(/\D/g, '');
