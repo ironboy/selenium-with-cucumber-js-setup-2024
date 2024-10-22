@@ -1,14 +1,15 @@
-import { Before, After, AfterStep } from '@cucumber/cucumber';
+import { BeforeAll, AfterAll, AfterStep } from '@cucumber/cucumber';
 import { sleepBetweenSteps } from '../../config.js';
+import { driver } from './world.js';
 
 const sleep = ms => new Promise(res => setTimeout(res, ms));
 
-Before(function () {
-  return this.driver.manage().window().maximize();
+BeforeAll(function () {
+  return driver.manage().window().maximize();
 });
 
-After(function () {
-  return this.driver.quit();
+AfterAll(function () {
+  return driver.quit();
 });
 
 AfterStep(async function () {
