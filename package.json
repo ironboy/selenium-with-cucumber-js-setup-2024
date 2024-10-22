@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js tests/features --import tests/features/support --import tests/features/step-definitions --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json",
-    "report": "node ./generateReport"
+    "report": "node ./generateReport",
+    "make-steps": "node makeSteps.cjs"
   },
   "keywords": [],
   "author": "",
